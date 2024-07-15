@@ -9,6 +9,11 @@ body{
 main{
     height: 100vh;
 }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
 .container-banner{
     width: 90%;
@@ -40,25 +45,25 @@ h2{
 }
 
 
-.container-cafe-manha, .container-almoco{
+.container-hamburgueria, .container-almoco{
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.container-cafe-manha-titulo, .container-almoco-titulo{
+.container-hamburgueria-titulo, .container-almoco-titulo{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.container-cafe-manha-titulo h3, .container-almoco-titulo h3{
+.container-hamburgueria-titulo h3, .container-almoco-titulo h3{
     font-size: 32px;
     color: #EBC181;
     text-align: center;
     margin: 15px 0px 5px;
 }
 
-.container-cafe-manha-produtos, .container-almoco-produtos{
+.container-hamburgueria-produtos, .container-almoco-produtos{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -100,6 +105,44 @@ h2{
 
 .ornaments{
     width: 200px;
+}
+.carrinho-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+.carrinho-container i {
+    font-size: 120px; /* Tripliquei o tamanho do ícone */
+    color: #e74c3c; /* Cor vermelha */
+}
+.carrinho-contador {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #c0392b; /* Cor de fundo do contador (vermelho escuro) */
+    color: #fff; /* Cor do texto do contador */
+    border-radius: 50%;
+    padding: 10px 15px; /* Aumentei o padding para combinar com o tamanho maior do ícone */
+    font-size: 24px; /* Tamanho do texto do contador */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra mais visível */
+}
+.mensagem-carrinho {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745; /* Cor verde para a mensagem de sucesso */
+    color: #fff; /* Cor do texto */
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve para destaque */
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000;
 }
 
 

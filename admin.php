@@ -1,38 +1,40 @@
 <?php
-    require "src/conexao-bd.php";
-    require "src/Modelo/Produto.php";
-    require "src/Repositorio/ProdutoRepositorio.php";
+// Inclui arquivos necessários
+require "src/conexao-bd.php";
+require "src/Modelo/Produto.php";
+require "src/Repositorio/ProdutoRepositorio.php";
 
-    $produtoRepositorio = new ProdutoRepositorio($pdo);
-    $produtos = $produtoRepositorio->buscarTodos();
+// Cria uma instância do repositório de produtos usando a conexão PDO
+$produtoRepositorio = new ProdutoRepositorio($pdo);
 
-
+// Busca todos os produtos no banco de dados
+$produtos = $produtoRepositorio->buscarTodos();
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/admin.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <title>Kingdom of Burguer - Admin</title>
+  <link rel="stylesheet" href="css/reset.css"> <!-- Estilos de reset para garantir consistência -->
+  <link rel="stylesheet" href="css/index.css"> <!-- Estilos específicos para a página index -->
+  <link rel="stylesheet" href="css/admin.css"> <!-- Estilos para a área administrativa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pré-conexão para carregamento de fontes -->
+  <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon"> <!-- Ícone da página -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Pré-conexão para carregamento de fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"> <!-- Fonte Poppins para estilos de texto -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Fonte Barlow para estilos de texto -->
+  <title>Kingdom of Burguer - Admin</title> <!-- Título da página -->
 </head>
 <body>
 <main>
   <section class="container-admin-banner">
-    <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
-    <h1>Admistração Kingdom of Burguer</h1>
+    <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto"> <!-- Logo da empresa -->
+    <h1>Administração Kingdom of Burguer</h1> <!-- Título principal da página -->
   </section>
-  <h2>Lista de Produtos</h2>
+  <h2>Lista de Produtos</h2> <!-- Título da seção de lista de produtos -->
 
   <section class="container-table">
     <table>
@@ -40,7 +42,7 @@
         <tr>
           <th>Produto</th>
           <th>Tipo</th>
-          <th>Descricão</th>
+          <th>Descrição</th>
           <th>Valor</th>
           <th colspan="2">Ação</th>
         </tr>
@@ -48,26 +50,24 @@
       <tbody>
       <?php foreach ($produtos as $produto): ?>
           <tr>
-            <td><?= $produto->getNome() ?></td>
-            <td><?= $produto->getTipo() ?></td>
-            <td><?= $produto->getDescricao() ?></td>
-            <td><?= $produto->getPrecoFormatado() ?></td>
-            <td><a class="botao-editar" href="editar-produto.php?id=<?= $produto->getId() ?>">Editar</a></td>
+            <td><?= $produto->getNome() ?></td> <!-- Exibe o nome do produto -->
+            <td><?= $produto->getTipo() ?></td> <!-- Exibe o tipo do produto -->
+            <td><?= $produto->getDescricao() ?></td> <!-- Exibe a descrição do produto -->
+            <td><?= $produto->getPrecoFormatado() ?></td> <!-- Exibe o preço formatado do produto -->
+            <td><a class="botao-editar" href="editar-produto.php?id=<?= $produto->getId() ?>">Editar</a></td> <!-- Botão para editar o produto -->
             <td>
               <form action="excluir-produto.php" method="post">
-                  <input type="hidden" name="id" value="<?= $produto->getId() ?>">
-                <input type="submit" class="botao-excluir" value="Excluir">
+                  <input type="hidden" name="id" value="<?= $produto->getId() ?>"> <!-- Campo oculto com o ID do produto a ser excluído -->
+                <input type="submit" class="botao-excluir" value="Excluir"> <!-- Botão para excluir o produto -->
               </form>
             </td>
           </tr>
       <?php endforeach; ?>
-
-
       </tbody>
     </table>
-  <input type="button" class="botao-cadastrar" value="Cadastrar Produto" onclick="window.location.href='cadastrar-produto-process.php'">
-  <input type="button" class="botao-cadastrar" value="Página do Admin" onclick="window.location.href='pagina-funcoes.php'">
-  <input type="button" class="botao-cadastrar" value="Logout" onclick="window.location.href='logout.php'">
+    <input type="button" class="botao-cadastrar" value="Cadastrar Produto" onclick="window.location.href='cadastrar-produto-process.php'"> <!-- Botão para cadastrar novo produto -->
+    <input type="button" class="botao-cadastrar" value="Página do Admin" onclick="window.location.href='pagina-funcoes.php'"> <!-- Botão para voltar à página de funções do admin -->
+    <input type="button" class="botao-cadastrar" value="Logout" onclick="window.location.href='logout.php'"> <!-- Botão para logout -->
     <br>
   </section>
 </main>

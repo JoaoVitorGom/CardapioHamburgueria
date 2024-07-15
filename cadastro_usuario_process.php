@@ -1,4 +1,4 @@
-<?php
+
 require('src/conexao_bd_login.php');
 
 // Verificação adicional para garantir que a conexão foi estabelecida corretamente

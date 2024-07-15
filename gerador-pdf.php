@@ -1,24 +1,27 @@
 <?php
-
+// Inclui a biblioteca Dompdf através do autoload do Composer
 require "vendor/autoload.php";
 
-// reference the Dompdf namespace
+// Usa o namespace Dompdf
 use Dompdf\Dompdf;
 
-// instantiate and use the dompdf class
+// Cria uma instância do Dompdf
 $dompdf = new Dompdf();
 
+// Inicia o buffer de saída para capturar o conteúdo do arquivo conteudo-pdf.php
 ob_start();
-require "conteudo-pdf.php";
-$html = ob_get_clean();
+require "conteudo-pdf.php"; // Inclui o conteúdo HTML que será convertido em PDF
+$html = ob_get_clean(); // Captura o conteúdo do buffer e limpa o buffer
 
+// Carrega o HTML no Dompdf
 $dompdf->loadHtml($html);
 
-// (Optional) Setup the paper size and orientation
+// (Opcional) Configura o tamanho do papel e a orientação (padrão é A4)
 $dompdf->setPaper('A4');
 
-// Render the HTML as PDF
+// Renderiza o HTML para PDF
 $dompdf->render();
 
-// Output the generated PDF to Browser
+// Saída do PDF gerado para o navegador (stream)
 $dompdf->stream();
+?>

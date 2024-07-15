@@ -1,4 +1,4 @@
-<?php
+
 require('src/conexao_bd_login.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -1,31 +1,33 @@
 <?php
-    require "src/conexao-bd.php";
-    require "src/Modelo/Produto.php";
-    require "src/Repositorio/ProdutoRepositorio.php";
+// Inclui os arquivos necessários: conexão com o banco de dados, classe Produto e Repositório ProdutoRepositorio
+require "src/conexao-bd.php";
+require "src/Modelo/Produto.php";
+require "src/Repositorio/ProdutoRepositorio.php";
 
-    $produtoRepositorio = new ProdutoRepositorio($pdo);
+// Cria uma instância do Repositório de Produto, passando a conexão PDO como parâmetro
+$produtoRepositorio = new ProdutoRepositorio($pdo);
 
-    if (isset($_POST['editar'])){
-        $produto = new Produto($_POST['id'], $_POST['tipo'], $_POST['nome'], $_POST['descricao'], $_POST['preco']);
+if (isset($_POST['editar'])) {
+    // Se o formulário foi submetido para edição de produto
+    $produto = new Produto($_POST['id'], $_POST['tipo'], $_POST['nome'], $_POST['descricao'], $_POST['preco']);
 
-        if (isset($_FILES['imagem'])){
-            $produto->setImagem(uniqid() . $_FILES['imagem']['name']);
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $produto->getImagemDiretorio());
-        }
-
-
-        $produtoRepositorio->atualizar($produto);
-        header("Location: admin.php");
-    }else{
-        $produto = $produtoRepositorio->buscar($_GET['id']);
+    // Verifica se uma nova imagem foi enviada e a move para o diretório adequado
+    if (isset($_FILES['imagem'])) {
+        $produto->setImagem(uniqid() . $_FILES['imagem']['name']);
+        move_uploaded_file($_FILES['imagem']['tmp_name'], $produto->getImagemDiretorio());
     }
 
+    // Atualiza o produto no banco de dados através do ProdutoRepositorio
+    $produtoRepositorio->atualizar($produto);
 
-
-
-
+    // Redireciona para a página admin.php após a edição
+    header("Location: admin.php");
+    exit(); // Encerra o script após o redirecionamento
+} else {
+    // Se não houver dados submetidos para edição, busca o produto com base no ID enviado via GET
+    $produto = $produtoRepositorio->buscar($_GET['id']);
+}
 ?>
-
 
 <!doctype html>
 <html lang="pt-br">
@@ -57,24 +59,25 @@
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome" placeholder="Digite o nome do produto" value="<?= $produto->getNome()?>" required>
 
+      <!-- Radios para seleção do tipo de produto -->
       <div class="container-radio">
         <div>
             <label for="burguers">Burguer</label>
-            <input type="radio" id="burgers" name="tipo" value="BURGER" <?= $produto->getTipo() == "Burgers"? "checked" : "" ?>>
+            <input type="radio" id="burgers" name="tipo" value="BURGER" <?= $produto->getTipo() == "Burgers" ? "checked" : "" ?>>
         </div>
         <div>
             <label for="batatas">Batata</label>
-            <input type="radio" id="batatas" name="tipo" value="BATATA" <?= $produto->getTipo() == "Batatas"? "checked" : "" ?>>
+            <input type="radio" id="batatas" name="tipo" value="BATATA" <?= $produto->getTipo() == "Batatas" ? "checked" : "" ?>>
         </div>
         <div>
             <label for="sobremesas">Sobremesa</label>
-            <input type="radio" id="sobremesas" name="tipo" value="SOBREMESA" <?= $produto->getTipo() == "Sobremesas"? "checked" : "" ?>>
+            <input type="radio" id="sobremesas" name="tipo" value="SOBREMESA" <?= $produto->getTipo() == "Sobremesas" ? "checked" : "" ?>>
         </div>
         <div>
             <label for="bebidas">Bebida</label>
-            <input type="radio" id="bebidas" name="tipo" value="BEBIDA" <?= $produto->getTipo() == "Bebidas"? "checked" : "" ?>>
+            <input type="radio" id="bebidas" name="tipo" value="BEBIDA" <?= $produto->getTipo() == "Bebidas" ? "checked" : "" ?>>
         </div>
-    </div>
+      </div>
 
       <label for="descricao">Descrição</label>
       <input type="text" name="descricao" id="descricao" value="<?= $produto->getDescricao()?>" placeholder="Digite uma descrição" required>
@@ -82,14 +85,20 @@
       <label for="preco">Preço</label>
       <input type="text" name="preco" id="preco" value="<?= number_format($produto->getPreco(),2)?>" placeholder="Digite uma descrição" required>
 
+      <!-- Input para envio de nova imagem do produto -->
       <label for="imagem">Envie uma imagem do produto</label>
       <input type="file" name="imagem" accept="image/*" id="imagem" placeholder="Envie uma imagem">
-        <input type="hidden" name="id" value="<?= $produto->getId()?>">
+
+      <!-- Campo hidden para enviar o ID do produto -->
+      <input type="hidden" name="id" value="<?= $produto->getId()?>">
+
+      <!-- Botão para submeter o formulário de edição -->
       <input type="submit" name="editar" class="botao-cadastrar" value="Editar produto"/>
     </form>
-
   </section>
 </main>
+
+<!-- Scripts JavaScript necessários -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" integrity="sha512-Rdk63VC+1UYzGSgd3u2iadi0joUrcwX0IWp2rTh6KXFoAmgOjRS99Vynz1lJPT8dLjvo6JZOqpAHJyfCEZ5KoA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/index.js"></script>
