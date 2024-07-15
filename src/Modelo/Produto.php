@@ -88,7 +88,7 @@ class Produto
      */
     public function getImagemDiretorio(): string
     {
-        return "img/" . $this->imagem;
+        return "../../public/img/".$this->imagem;
     }
 
     /**

@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Função para atualizar o contador de itens no carrinho
     function atualizarContadorCarrinho() {
-        fetch('atualizar-carrinho.php')
+        fetch('../src/Controllers/atualizar-carrinho.php')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('carrinho-contador').textContent = data.numeroDeItens;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = form.getAttribute('data-id');
             const nome = form.getAttribute('data-nome');
 
-            fetch('adicionar-ao-carrinho.php', {
+            fetch('../src/Controllers/adicionar-ao-carrinho.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

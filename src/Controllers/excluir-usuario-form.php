@@ -1,6 +1,6 @@
 <?php
 // Inclui o arquivo de conexão com o banco de dados
-require('src/conexao_bd_login.php');
+require('../conexao_bd_login.php');
 
 // Inicializa a variável $usuarios
 $usuarios = [];
@@ -58,15 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/admin.css">
-  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="../../public/css/reset.css">
+  <link rel="stylesheet" href="../../public/css/index.css">
+  <link rel="stylesheet" href="../../public/css/admin.css">
+  <link rel="stylesheet" href="../../public/css/form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon">
+  <link rel="icon" href="../../public/img/Pioneiro-Photoroom.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <title>Kingdom of Burguer - Excluir Conta Admin</title>
   <script>
     // Função para confirmar exclusão de usuário
@@ -77,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <section class="container-admin-banner">
-        <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
+        <img src="../../public/img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
         <h1>Exclusão De Contas</h1>
     </section>
     <section class="container-form">
@@ -91,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <input type="submit" class="botao-cadastrar" value="Excluir Conta Admin" onclick="return confirmDelete()">
             <br>
-            <input type="button" class="botao-cadastrar" value="Página do Admin" onclick="window.location.href='pagina-funcoes.php'">
+            <input type="button" class="botao-cadastrar" value="Página do Admin" onclick="window.location.href='../View/pagina-funcoes.php'">
             <br>
             <input type="button" class="botao-cadastrar" value="Logout" onclick="window.location.href='logout.php'">
             <br>

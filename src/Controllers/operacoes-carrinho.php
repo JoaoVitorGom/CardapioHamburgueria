@@ -87,24 +87,4 @@ function getTotalCart($pdo) {
     return $total;
 }
 
-// Exemplo de utilização das funções:
 
-// Inicializa a conexão com o banco de dados (substitua pelas suas configurações)
-//$pdo = new PDO('mysql:host=localhost;dbname=seu_banco_de_dados', 'seu_usuario', 'sua_senha');
-
-// Adiciona um produto ao carrinho
-//addCart(1, 2, 'Produto A', 10.50);
-
-// Exclui um produto do carrinho
-//deleteCart(1);
-
-// Atualiza a quantidade de um produto no carrinho
-//updateCart(1, 3);
-
-// Obtém o conteúdo detalhado do carrinho
-//$cartContent = getContentCart($pdo);
-//print_r($cartContent);
-
-// Obtém o total do carrinho
-//$cartTotal = getTotalCart($pdo);
-//echo 'Total do Carrinho: R$ ' . number_format($cartTotal, 2, ',', '.');

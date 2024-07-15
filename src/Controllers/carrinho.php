@@ -1,8 +1,7 @@
 <?php
 require "buscar-produtos.php";
 require "operacoes-carrinho.php";
-require "src/conexao-bd.php";
-
+require "../conexao-bd.php";
 // Verifica se há uma ação válida na URL (add, del, up)
 if (isset($_GET['acao']) && in_array($_GET['acao'], ['add', 'del', 'up'])) {
     // Se a ação for adicionar e o ID do produto for numérico
@@ -44,18 +43,17 @@ $totalCarts = getTotalCart($pdo); // Calcula o total do valor dos produtos no ca
     <title>Kingdom of Burguer - Carrinho de Compras</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="css/form.css">
-    <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/reset.css">
+    <link rel="stylesheet" href="../../public/css/index.css">
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="../../public/css/form.css">
+    <link rel="icon" href="../../public/img/Pioneiro-Photoroom.png" type="image/x-icon">
 
 </head>
 <body>
 <main>
     <section class="container-admin-banner">
-        <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
+        <img src="../../public/img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
         <h1>Carrinho De Compras</h1>
         <br>
         <h2>Tabela De Pedidos</h2>
@@ -112,9 +110,9 @@ $totalCarts = getTotalCart($pdo); // Calcula o total do valor dos produtos no ca
         </section>
         <!-- Botões para continuar comprando ou finalizar compra -->
         <section class="container-admin-banner">
-            <input type="button" class="botao-cadastrar" value="Continuar Comprando" onclick="window.location.href='index.php'">
+            <input type="button" class="botao-cadastrar" value="Continuar Comprando" onclick="window.location.href='../../public/index.php'">
             <br>
-            <input type="button" class="botao-cadastrar" value="Finalizar Compra" onclick="window.location.href='compra-finalizada.php'">
+            <input type="button" class="botao-cadastrar" value="Finalizar Compra" onclick="window.location.href='../View/compra-finalizada.php'">
             <br>
             <br>
         </section>
@@ -122,7 +120,7 @@ $totalCarts = getTotalCart($pdo); // Calcula o total do valor dos produtos no ca
         <!-- Se o carrinho estiver vazio, exibe mensagem para começar a comprar -->
         <section class="container-admin-banner">
             <h2>Seu carrinho está vazio!</h2>
-            <input type="button" class="botao-cadastrar" value="Começar a Comprar" onclick="window.location.href='index.php'">
+            <input type="button" class="botao-cadastrar" value="Começar a Comprar" onclick="window.location.href='../../public/index.php'">
             <br>
             <br>
         </section>
@@ -131,6 +129,6 @@ $totalCarts = getTotalCart($pdo); // Calcula o total do valor dos produtos no ca
 
 </main>
 
-<script src="./js/script.js"></script>
+<script src="../../public/js/script.js"></script>
 </body>
 </html>

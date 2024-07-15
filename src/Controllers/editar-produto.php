@@ -1,8 +1,8 @@
 <?php
 // Inclui os arquivos necessários: conexão com o banco de dados, classe Produto e Repositório ProdutoRepositorio
-require "src/conexao-bd.php";
-require "src/Modelo/Produto.php";
-require "src/Repositorio/ProdutoRepositorio.php";
+require "../conexao-bd.php";
+require "../Modelo/Produto.php";
+require "../Repositorio/ProdutoRepositorio.php";
 
 // Cria uma instância do Repositório de Produto, passando a conexão PDO como parâmetro
 $produtoRepositorio = new ProdutoRepositorio($pdo);
@@ -36,21 +36,20 @@ if (isset($_POST['editar'])) {
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/admin.css">
-  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="../../public/css/reset.css">
+  <link rel="stylesheet" href="../../public/css/index.css">
+  <link rel="stylesheet" href="../../public/css/admin.css">
+  <link rel="stylesheet" href="../../public/css/form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../../public/img/Pioneiro-Photoroom.png" type="image/x-icon">
+ 
   <title>Kingdom of Burguer - Editar Produto</title>
 </head>
 <body>
 <main>
   <section class="container-admin-banner">
-    <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
+    <img src="../../public/img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
     <h1>Editar Produto</h1>
   </section>
   <section class="container-form">
@@ -101,6 +100,6 @@ if (isset($_POST['editar'])) {
 <!-- Scripts JavaScript necessários -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" integrity="sha512-Rdk63VC+1UYzGSgd3u2iadi0joUrcwX0IWp2rTh6KXFoAmgOjRS99Vynz1lJPT8dLjvo6JZOqpAHJyfCEZ5KoA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="js/index.js"></script>
+<script src="../../public/js/script.js"></script>
 </body>
 </html>

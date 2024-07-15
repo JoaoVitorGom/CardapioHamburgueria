@@ -1,8 +1,8 @@
 <?php
 // Inclui arquivos necessários
-require "src/conexao-bd.php";
-require "src/Modelo/Produto.php";
-require "src/Repositorio/ProdutoRepositorio.php";
+require "../conexao-bd.php";
+require "../Modelo/Produto.php";
+require "../Repositorio/ProdutoRepositorio.php";
 
 // Verifica se o formulário foi submetido
 if (isset($_POST['cadastro'])) {
@@ -39,21 +39,19 @@ if (isset($_POST['cadastro'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/reset.css"> <!-- Estilos de reset para garantir consistência -->
-    <link rel="stylesheet" href="css/index.css"> <!-- Estilos específicos para a página index -->
-    <link rel="stylesheet" href="css/admin.css"> <!-- Estilos para a área administrativa -->
-    <link rel="stylesheet" href="css/form.css"> <!-- Estilos para formulários -->
+    <link rel="stylesheet" href="../../public/css/reset.css"> <!-- Estilos de reset para garantir consistência -->
+    <link rel="stylesheet" href="../../public/css/index.css"> <!-- Estilos específicos para a página index -->
+    <link rel="stylesheet" href="../../public/css/admin.css"> <!-- Estilos para a área administrativa -->
+    <link rel="stylesheet" href="../../public/css/form.css"> <!-- Estilos para formulários -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pré-conexão para carregamento de fontes -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Pré-conexão para carregamento de fontes -->
-    <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon"> <!-- Ícone da página -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"> <!-- Fonte Poppins para estilos de texto -->
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Fonte Barlow para estilos de texto -->
+    <link rel="icon" href="../../public/img/Pioneiro-Photoroom.png" type="image/x-icon"> <!-- Ícone da página -->
     <title>Kingdom of Burguer - Cadastrar Produto</title> <!-- Título da página -->
 </head>
 <body>
 <main>
     <section class="container-admin-banner">
-        <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto"> <!-- Logo da empresa -->
+        <img src="../../public/img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto"> <!-- Logo da empresa -->
         <h1>Cadastro de Produtos</h1> <!-- Título principal da página -->
     </section>
     <section class="container-form">
@@ -101,6 +99,6 @@ if (isset($_POST['cadastro'])) {
 <!-- Scripts adicionais -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script> <!-- jQuery para funcionalidades JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" integrity="sha512-Rdk63VC+1UYzGSgd3u2iadi0joUrcwX0IWp2rTh6KXFoAmgOjRS99Vynz1lJPT8dLjvo6JZOqpAHJyfCEZ5KoA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!-- Plugin para formatação de dinheiro -->
-<script src="./js/script.js"></script> <!-- Script personalizado -->
+<script src="../../public/js/script.js"></script> <!-- Script personalizado -->
 </body>
 </html>

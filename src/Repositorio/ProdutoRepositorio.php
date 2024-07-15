@@ -133,7 +133,7 @@ class ProdutoRepositorio
         $statement->bindValue(1, $produto->getTipo());
         $statement->bindValue(2, $produto->getNome());
         $statement->bindValue(3, $produto->getDescricao());
-        $statement->bindValue(4, $produto->getPreco());
+        $statement->bindValue(4,$produto->getPreco());
         $statement->bindValue(5, $produto->getImagem());
         $statement->execute();
     }

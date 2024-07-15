@@ -4,21 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/reset.css"> <!-- Reset CSS para garantir estilos consistentes -->
-  <link rel="stylesheet" href="css/index.css"> <!-- Estilos específicos da página index -->
-  <link rel="stylesheet" href="css/admin.css"> <!-- Estilos para a área administrativa -->
-  <link rel="stylesheet" href="css/form.css"> <!-- Estilos para formulários -->
+  <link rel="stylesheet" href="../../public/css/reset.css"> <!-- Reset CSS para garantir estilos consistentes -->
+  <link rel="stylesheet" href="../../public/css/index.css"> <!-- Estilos específicos da página index -->
+  <link rel="stylesheet" href="../../public/css/admin.css"> <!-- Estilos para a área administrativa -->
+  <link rel="stylesheet" href="../../public/css/form.css"> <!-- Estilos para formulários -->
   <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pré-conexão para carregamento de fontes -->
-  <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon"> <!-- Ícone da página -->
+  <link rel="icon" href="../../public/img/Pioneiro-Photoroom.png" type="image/x-icon"> <!-- Ícone da página -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Pré-conexão para carregamento de fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"> <!-- Fonte Poppins para estilos de texto -->
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Fonte Barlow para estilos de texto -->
   <title>Kingdom of Burger - Login</title> <!-- Título da página -->
 </head>
 <body>
 <main>
   <section class="container-admin-banner">
-    <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto"> <!-- Logo da empresa -->
+    <img src="../../public/img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto"> <!-- Logo da empresa -->
     <h1>Login Kingdom of Burger</h1> <!-- Título da seção de login -->
   </section>
   <section class="container-form">
@@ -36,7 +34,7 @@
 <?php
 // Verificação e processamento do formulário de login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require('src/conexao_bd_login.php');
+    require('../conexao_bd_login.php');
 
     // Verificação adicional para garantir que a conexão foi estabelecida corretamente
     if (!isset($conn)) {
@@ -67,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verifica se a senha fornecida corresponde ao hash de senha armazenado
             if (password_verify($password, $stored_hash)) {
                 // Login bem-sucedido
-                echo "<script>window.location.href='loginBemSucedido.php?username=" . urlencode($username) . "';</script>";
+                echo "<script>window.location.href='../View/loginBemSucedido.php?username=" . urlencode($username) . "';</script>";
                 exit();
             } else {
                 // Senha incorreta

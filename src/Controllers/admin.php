@@ -1,8 +1,8 @@
 <?php
 // Inclui arquivos necessários
-require "src/conexao-bd.php";
-require "src/Modelo/Produto.php";
-require "src/Repositorio/ProdutoRepositorio.php";
+require_once "../conexao-bd.php";
+require_once "../Modelo/Produto.php";
+require_once "../Repositorio/ProdutoRepositorio.php";
 
 // Cria uma instância do repositório de produtos usando a conexão PDO
 $produtoRepositorio = new ProdutoRepositorio($pdo);
@@ -18,23 +18,22 @@ $produtos = $produtoRepositorio->buscarTodos();
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/reset.css"> <!-- Estilos de reset para garantir consistência -->
-  <link rel="stylesheet" href="css/index.css"> <!-- Estilos específicos para a página index -->
-  <link rel="stylesheet" href="css/admin.css"> <!-- Estilos para a área administrativa -->
+  <link rel="stylesheet" href="../../public/css/reset.css"> <!-- Estilos de reset para garantir consistência -->
+  <link rel="stylesheet" href="../../public/css/index.css"> <!-- Estilos específicos para a página index -->
+  <link rel="stylesheet" href="../../public/css/admin.css"> <!-- Estilos para a área administrativa -->
   <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pré-conexão para carregamento de fontes -->
-  <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon"> <!-- Ícone da página -->
+  <link rel="icon" href="../../public/img/Pioneiro-Photoroom.png" type="image/x-icon"> <!-- Ícone da página -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Pré-conexão para carregamento de fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"> <!-- Fonte Poppins para estilos de texto -->
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Fonte Barlow para estilos de texto -->
   <title>Kingdom of Burguer - Admin</title> <!-- Título da página -->
 </head>
 <body>
 <main>
   <section class="container-admin-banner">
-    <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto"> <!-- Logo da empresa -->
+    <img src="../../public/img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto"> <!-- Logo da empresa -->
     <h1>Administração Kingdom of Burguer</h1> <!-- Título principal da página -->
   </section>
   <h2>Lista de Produtos</h2> <!-- Título da seção de lista de produtos -->
+
 
   <section class="container-table">
     <table>
@@ -66,7 +65,7 @@ $produtos = $produtoRepositorio->buscarTodos();
       </tbody>
     </table>
     <input type="button" class="botao-cadastrar" value="Cadastrar Produto" onclick="window.location.href='cadastrar-produto-process.php'"> <!-- Botão para cadastrar novo produto -->
-    <input type="button" class="botao-cadastrar" value="Página do Admin" onclick="window.location.href='pagina-funcoes.php'"> <!-- Botão para voltar à página de funções do admin -->
+    <input type="button" class="botao-cadastrar" value="Página do Admin" onclick="window.location.href='../View/pagina-funcoes.php'"> <!-- Botão para voltar à página de funções do admin -->
     <input type="button" class="botao-cadastrar" value="Logout" onclick="window.location.href='logout.php'"> <!-- Botão para logout -->
     <br>
   </section>

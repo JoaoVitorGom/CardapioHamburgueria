@@ -1,11 +1,11 @@
 <?php
 
 // Inclui o arquivo de conexão com o banco de dados
-require "src/conexao-bd.php";
+require "../conexao-bd.php";
 
 // Inclui as classes necessárias: Modelo Produto e Repositório ProdutoRepositorio
-require "src/Modelo/Produto.php";
-require "src/Repositorio/ProdutoRepositorio.php";
+require "../Modelo/Produto.php";
+require "../Repositorio/ProdutoRepositorio.php";
 
 // Cria uma instância do Repositório de Produto, passando a conexão PDO como parâmetro
 $produtoRepositorio = new ProdutoRepositorio($pdo);

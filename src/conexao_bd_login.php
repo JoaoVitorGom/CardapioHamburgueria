@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'bd_sistema_login';
 $username = 'root';
-$password = '19e23za*';
+$password = '';
 
 try {
     // Construção da string de conexão (DSN)

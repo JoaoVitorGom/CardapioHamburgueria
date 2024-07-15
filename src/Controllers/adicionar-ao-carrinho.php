@@ -3,7 +3,7 @@
 session_start();
 
 // Inclui o arquivo de conexão com o banco de dados
-require "src/conexao-bd.php";
+require_once "../conexao-bd.php";
 
 // Recebe o ID do produto enviado via POST
 $idProduto = $_POST['id'] ?? null;

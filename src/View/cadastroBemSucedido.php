@@ -1,5 +1,5 @@
 <?php
-require('src/conexao_bd_login.php');
+require('../conexao_bd_login.php');
 
 // Verifica se o parâmetro 'username' está presente na URL
 if (!isset($_GET['username'])) {
@@ -21,19 +21,17 @@ $nome = $_GET['username'];
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <!-- Links para arquivos de estilos CSS -->
-    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset para padronização de estilos -->
-    <link rel="stylesheet" href="css/index.css"> <!-- Estilos gerais da aplicação -->
-    <link rel="stylesheet" href="css/admin.css"> <!-- Estilos específicos para administração -->
-    <link rel="stylesheet" href="css/form.css"> <!-- Estilos específicos para formulários -->
+    <link rel="stylesheet" href="../../public/css/reset.css"> <!-- CSS reset para padronização de estilos -->
+    <link rel="stylesheet" href="../../public/css/index.css"> <!-- Estilos gerais da aplicação -->
+    <link rel="stylesheet" href="../../public/css/admin.css"> <!-- Estilos específicos para administração -->
+    <link rel="stylesheet" href="../../public/css/form.css"> <!-- Estilos específicos para formulários -->
     
     <!-- Pré-conexão e carregamento de fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Ícone da página exibido na aba do navegador -->
-    <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon">
+    <link rel="icon" href="../../public/img/Pioneiro-Photoroom.png" type="image/x-icon">
     
     <!-- Título da página exibido na aba do navegador -->
     <title>Kingdom of Burguer - Boas Vindas</title>
@@ -44,7 +42,7 @@ $nome = $_GET['username'];
         <!-- Container do banner de administração -->
         <section class="container-admin-banner">
             <!-- Logo da aplicação exibido no banner -->
-            <img src="img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
+            <img src="../../public/img/Pioneiro-Photoroom.png" class="logo-admin" alt="logo-serenatto">
             
             <!-- Título de boas-vindas personalizado com o nome do usuário -->
             <h1>Parabéns, <?php echo htmlspecialchars($nome); ?>!</h1>
@@ -59,7 +57,7 @@ $nome = $_GET['username'];
             <br>
             
             <!-- Botão para realizar logout -->
-            <input type="button" class="botao-cadastrar" value="Logout" onclick="window.location.href='logout.php'">
+            <input type="button" class="botao-cadastrar" value="Logout" onclick="window.location.href='../Controllers/logout.php'">
             <br>
         </section>
     </main>

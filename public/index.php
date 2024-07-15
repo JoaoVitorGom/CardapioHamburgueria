@@ -1,8 +1,8 @@
 <?php
 // Inclui os arquivos necessários para a conexão com o banco de dados e outras classes relevantes
-require "src/conexao-bd.php";
-require "src/Modelo/Produto.php";
-require "src/Repositorio/ProdutoRepositorio.php";
+require "../src/conexao-bd.php";
+require "../src/Modelo/Produto.php";
+require "../src/Repositorio/ProdutoRepositorio.php";
 
 // Função para obter todos os produtos do banco de dados através da conexão PDO fornecida
 function getProducts($pdoConnection) {
@@ -32,17 +32,16 @@ $dadosCategorias = [
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/admin.css">
     <!-- Ícone da página -->
-    <link rel="icon" href="img/Pioneiro-Photoroom.png" type="image/x-icon">
-    <!-- Fonte do Google Fonts e ícones do Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/Pioneiro-Photoroom.png" type="image/x-icon">
+    <!-- Ícones do Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>X-Burguer - Cardápio</title>
+    <title>Kingdom of Burger - Cardápio</title>
 </head>
 <body>
 <main>
     <!-- Container do carrinho de compras -->
     <div class="carrinho-container">
-        <a href="carrinho.php">
+        <a href="../src/Controllers/carrinho.php">
             <i class="fas fa-shopping-cart"></i>
             <!-- Contador do carrinho, inicialmente zero -->
             <div id="carrinho-contador" class="carrinho-contador">0</div>
@@ -89,11 +88,12 @@ $dadosCategorias = [
     <!-- Seção para administradores -->
     <section class="container-admin-banner">
         <!-- Formulário para gerar um PDF do cardápio -->
-        <form action="gerador-pdf.php" method="post">
+        <form action="../../gerador-pdf.php" method="post">
             <input type="submit" class="botao-cadastrar" value="Baixar Cardápio PDF"/>
         </form>
         <!-- Botão para login como administrador -->
-        <input type="button" class="botao-cadastrar" value="Login Como Admin" onclick="window.location.href='login.php'">
+        <input type="button" class="botao-cadastrar" value="Login Como Admin" onclick="window.location.href='../src/Controllers/login.php'">
+        <br>
         <br>
     </section>
 </main>
