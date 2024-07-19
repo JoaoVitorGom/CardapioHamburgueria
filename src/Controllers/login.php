@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verifica se a senha fornecida corresponde ao hash de senha armazenado
             if (password_verify($password, $stored_hash)) {
                 // Login bem-sucedido
-                echo "<script>window.location.href='../View/loginBemSucedido.php?username=" . urlencode($username) . "';</script>";
+                echo "<script>window.location.href='../View/loginBemSucedido.php?username=" . urlencode($email) . "';</script>";
                 exit();
             } else {
                 // Senha incorreta

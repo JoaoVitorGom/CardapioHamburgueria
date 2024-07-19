@@ -25,7 +25,7 @@
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Prepara a consulta SQL para inserir o novo usuário
-        $sql = "INSERT INTO usuario (nome, password, email, data_nascimento) VALUES (:nome, :password, :email, :data_nascimento)";
+        $sql = "INSERT INTO usuario (nome, password, email, data_nascimento,nivel_permissao) VALUES (:nome, :password, :email, :data_nascimento, :nivel_permissao)";
         $stmt = $conn->prepare($sql);
 
         // Verificação de depuração para a preparação da consulta
@@ -37,6 +37,7 @@
         $stmt->bindParam(':password', $hashed_password);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':data_nascimento', $data);
+        $stmt->bindParam(':nivel_permissao', $nivel_permissao);
 
         // Executa a consulta
         if ($stmt->execute()) {
@@ -110,15 +111,15 @@
             <div class="container-radio">
                 <div>
                     <label for="burguers">COMUM</label>
-                    <input type="radio" id="comum" name="tipo" value="COMUM" checked> <!-- Opção de tipo de produto -->
+                    <input type="radio" id="comum" name="nivel_permissao" value="COMUM" checked> <!-- Opção de tipo de produto -->
                 </div>
                 <div>
                     <label for="batatas">INTERMEDIÁRIO</label>
-                    <input type="radio" id="intermediário" name="tipo" value="INTERMEDIÁRIO"> <!-- Opção de tipo de produto -->
+                    <input type="radio" id="intermediário" name="nivel_permissao" value="INTERMEDIÁRIO"> <!-- Opção de tipo de produto -->
                 </div>
                 <div>
                     <label for="sobremesas">AVANÇADO</label>
-                    <input type="radio" id="avançado" name="tipo" value="AVANÇADO"> <!-- Opção de tipo de produto -->
+                    <input type="radio" id="avançado" name="nivel_permissao" value="AVANÇADO"> <!-- Opção de tipo de produto -->
                 </div>
             </div>
             <!-- Botão de submissão do formulário de cadastro -->
