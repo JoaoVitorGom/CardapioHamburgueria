@@ -13,6 +13,7 @@
         $password = $_POST['password'];
         $email = $_POST['email'];
         $data = $_POST['data'];
+        $nivel_permissao = $_POST['nivel_permissao'];
 
         // Verificar se a senha atende aos requisitos mínimos
         if (strlen($password) < 8 || !preg_match('/[0-9]/', $password) || !preg_match('/[A-Z]/', $password) || !preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
@@ -24,7 +25,7 @@
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Prepara a consulta SQL para inserir o novo usuário
-        $sql = "INSERT INTO usuario (username, password, email, data) VALUES (:username, :password, :email, :data)";
+        $sql = "INSERT INTO usuario (nome, password, email, data_nascimento) VALUES (:nome, :password, :email, :data_nascimento)";
         $stmt = $conn->prepare($sql);
 
         // Verificação de depuração para a preparação da consulta
@@ -32,10 +33,10 @@
             die("Falha na preparação da consulta: " . implode(" ", $conn->errorInfo()));
         }
 
-        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':nome', $username);
         $stmt->bindParam(':password', $hashed_password);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':data', $data);
+        $stmt->bindParam(':data_nascimento', $data);
 
         // Executa a consulta
         if ($stmt->execute()) {
@@ -106,7 +107,20 @@
             <label for="data">Data de Nascimento:</label>
             <input type="date" name="data" id="data" required>
             <br>
-            
+            <div class="container-radio">
+                <div>
+                    <label for="burguers">COMUM</label>
+                    <input type="radio" id="comum" name="tipo" value="COMUM" checked> <!-- Opção de tipo de produto -->
+                </div>
+                <div>
+                    <label for="batatas">INTERMEDIÁRIO</label>
+                    <input type="radio" id="intermediário" name="tipo" value="INTERMEDIÁRIO"> <!-- Opção de tipo de produto -->
+                </div>
+                <div>
+                    <label for="sobremesas">AVANÇADO</label>
+                    <input type="radio" id="avançado" name="tipo" value="AVANÇADO"> <!-- Opção de tipo de produto -->
+                </div>
+            </div>
             <!-- Botão de submissão do formulário de cadastro -->
             <input type="submit" class="botao-cadastrar" value="Cadastrar">
             <br>

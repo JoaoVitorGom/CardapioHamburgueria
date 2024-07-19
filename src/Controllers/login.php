@@ -21,8 +21,8 @@
   </section>
   <section class="container-form">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> <!-- Formulário de login enviando para a mesma página -->
-      <label for="username">Nome de Usuário:</label> <!-- Campo para inserir nome de usuário -->
-      <input type="text" id="username" name="username" required><br> <!-- Input para inserção do nome de usuário -->
+      <label for="email">Nome de Usuário:</label> <!-- Campo para inserir nome de usuário -->
+      <input type="text" id="email" name="email" required><br> <!-- Input para inserção do nome de usuário -->
       <label for="password">Senha:</label> <!-- Campo para inserir senha -->
       <input type="password" id="password" name="password" required><br> <!-- Input para inserção da senha -->
       <input type="submit" class="botao-cadastrar" value="Entrar"/> <!-- Botão para submeter o formulário -->
@@ -42,11 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Recebe os dados do formulário
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     // Prepara a consulta SQL
-    $sql = "SELECT id, username, password FROM usuario WHERE username = :username";
+    $sql = "SELECT id, email, password FROM usuario WHERE email = :email";
     $stmt = $conn->prepare($sql);
 
     // Verificação de depuração para a preparação da consulta
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Falha na preparação da consulta: " . implode(" ", $conn->errorInfo()));
     }
 
-    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':email', $email);
 
     // Verifique se a consulta foi preparada corretamente
     if ($stmt->execute()) {
